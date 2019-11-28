@@ -1,0 +1,8 @@
+extends ../layout
+
+block content
+  .container
+    h1.main-title 게시글 수정하기
+    form(action=`/posts/${post.id}?_method=PUT`, method="POST")
+      include _form
+      button.btn.btn-outline-primary(type="submit") 게시글 수정하기

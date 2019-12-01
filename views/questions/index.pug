@@ -1,0 +1,43 @@
+extends ../layout
+
+include ../includes/_paginate
+
+block content
+  .container
+    form.form-inline.search-input-group(action='/questions', method='GET')
+      i.fa.fa-search
+      input.form-control.mr-sm-2(type='text', name='term', placeholder='여행지, 제목, 키워드를 입력해주세요', aria-label='Search', value=term)
+
+    .form
+      .form-row
+        .col-md-2="정렬"
+        .form-group.col-md-4
+          select#exampleFormControlSelect1.form-control(onchange='/questions', method='POST')
+            option 인기순
+            option 후기순
+            option 가격순
+            option 신상품순
+
+        //.form-group.col-md-2
+          button.btn.btn-primary.mb-2(type='submit') 
+            i.fa.fa-search
+            | #{' '} 접수 검색  
+
+    h1.main-title 
+      | Contests
+      if questions.total > 0
+        .small Total #{questions.total} contest(s)
+
+    if questions.total <= 0 
+      .alert.alert-info No contests available yet
+    else
+      .questions
+        each question in questions.docs
+          .question
+            a.title(href=`/questions/${question.id}`)= question.title
+            include _question
+
+      +paginate(questions, '/questions', query)
+
+    
+    a.btn.btn-primary(href='/questions/new') 투어 등록하기

@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+  .container
+    h1.main-title Register
+    form(action='/users', method='POST')
+      .form-group
+        label(for='name') Name
+        input.form-control(type='text', id='name', name='name', placeholder='Your name')
+      .form-group
+        label(for='email') Email address
+        input.form-control(type='email', id='email', name='email', placeholder='Email')
+      
+      // 추가 - 사용자 모드 체크 
+      label(for='isManager') userMode
+      .form-group
+        input.radioInput(type='radio', name="userMode", value="일반 사용자", checked="checked")
+        | 일반 사용자
+        input.radioInput(type='radio', name="userMode", value="가이드")
+        | 가이드
+        input.radioInput(type='radio', name="userMode", value="관리자")
+        | 관리자 
+        
+
+      .form-group
+        label(for='password') Password
+        input.form-control(type='password', id='password', name='password', placeholder='Password')
+      .form-group
+        label(for='password_confirmation') Password Confirmation
+        input.form-control(type='password', id='password_confirmation', name='password_confirmation', placeholder='Password')
+      a.btn.btn-outline-secondary(href='/users') List
+      | 
+      button.btn.btn-primary(type='submit') Register 

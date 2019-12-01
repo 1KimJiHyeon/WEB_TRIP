@@ -1,0 +1,55 @@
+label(for="radio") 여행지 상태  
+.form-group
+  input.radioInput(type="radio", name="radio", value="접수중", checked="checked")
+  | 여행지 접수중    
+  input.radioInput(type="radio", name="radio", value="마감임박")
+  | 여행지 마감임박   
+  input.radioInput(type="radio", name="radio", value="마감")
+  | 여행지 마감 
+.form-group
+  label(for="title") 여행지
+  input.form-control(type="text", name="title", placeholder="여행지", value=question.title)
+
+  .form-group 제목
+  input.form-control(type="text", name="field", placeholder="제목", value=question.field)
+
+
+.form-group
+  
+  label(for="question") 여행지 설명
+  input.form-control(type="file", name="img")
+  textarea.form-control(name="content", rows="10", placeholder="여행지 설명")= question.content
+
+.form-group
+  label(for="period") 여행 코스
+  input.form-control(type="text", name="period", placeholder="여행 코스", value=question.period)
+.form-group
+  label(for="applicant") 여행지 가격
+  input.form-control(type="text", name="applicant", placeholder="여행지 가격", value=question.applicant)
+
+.form-group
+  label(for="meet") 만나는 장소
+  input.form-control(type="text", name="manager", placeholder="만나는 장소", value=question.manager)
+
+.form-group
+  label(for="time") 만나는 시간
+  input.form-control(type="text", placeholder="만나는 시간", value=question.manager)
+
+.form-group
+  label(for="sponser") 가이드 소개
+  input.form-control(type="text", name="sponser", placeholder="가이드 이름", value=question.sponser)
+ 
+  .form-group
+  input.form-control(type="text", name="tel", placeholder="가이드 연락처", value=question.tel)
+
+
+
+
+// 공모전 포스터 등록
+
+
+
+
+.form-group
+  label(for="tags") Tags
+  input.form-control(type="text", name="tags", placeholder="태그를 공백으로 구분하여 입력해주세요", value=question.tags ? question.tags.join(" ") : "")

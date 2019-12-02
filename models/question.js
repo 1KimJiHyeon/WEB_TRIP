@@ -3,14 +3,14 @@ const mongoosePaginate = require('mongoose-paginate');
 const Schema = mongoose.Schema;
 
 var schema = new Schema({
+  
   author: { type: Schema.Types.ObjectId, ref: 'User' },
   title: {type: String, trim: true, required: true},
   content: {type: String, trim: true, required: true},
-  
   // 추가
   sponser : {type:String, trim:true, required:true},
   field : {type:String, trim:true, required:true},
-  applicant : {type:String, trim:true, required:true},
+  applicant : {type:Number, trim:true, required:true},
   period : {type:String, trim:true, required:true},
   manager : {type:String, trim:true, required:true},
   tel : {type:String, trim:true, required:true},

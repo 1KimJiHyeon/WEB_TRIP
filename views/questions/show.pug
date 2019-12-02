@@ -7,22 +7,73 @@ block content
     .container
         .row
           .col-2="여행지"
+        .row
           .col-10=question.title
+          hr
 
         // 추가 정보 
         .row
           .col-2="제목"
+        .row
           .col-10=question.field
+          hr
+
+        .row
+          .col-2="인원"
+        
+           
+          input#input(type='number')
+          
+          textarea#output
+          
+          button(onclick='input()') 인원 수 입력하기
+          
+          button(onclick='output()') 가격 책정하기
+          // 아래부터 자바스크립트
+          script(type='text/javascript').
+            var temp;
+            function input(){
+            var input = document.getElementById("input").value;
+            temp = input;
+          
+            }
+            function output(){
+            document.getElementById("output").value = temp;
+
+            
+            }
+          
+
+
+          
+        hr
         .row
           .col-2="가격"
-          .col-10=question.applicant
         
+        
+          
+
+
+
+         
+         
+        hr
         .row
           .col-2="설명"
+        .row
           .col-10=question.content
+          hr
         .row
           .col-2="여행 코스"
-          .col-10=question.period
+        .row
+          .col-10="1일차 ",question.period
+          .col-10="2일차 ",question.tel
+          .col-10="3일차 ",question.sponser
+          
+        .row
+          iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12666.003881493406!2d126.43137978475859!3d37.47250282546333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b9a833a5efa59%3A0x8d4ba096cb5cbed4!2z7J247LKc6rWt7KCc6rO17ZWt!5e0!3m2!1sko!2skr!4v1575290485267!5m2!1sko!2skr', width='400', height='300', frameborder='0', style='border:0;', allowfullscreen='')
+
+
 
         
 
@@ -32,16 +83,17 @@ block content
         img.img-fluid(src=question.img)
       include _question
 
+
       .buttons
         if currentUser
-          button.btn.btn-primary.question-like-btn(data-id=question.id) 
-            span.for-loading #[i.fa.fa-spin.fa-refresh] Loading
-            span #[i.fa.fa-thumbs-up] Like
-          if question.author && question.author.id == currentUser.id
-            | 
-            a.btn.btn-outline-secondary(href=`/questions/${question.id}/edit`) Edit
-            | 
-            a.btn.btn-outline-danger.need-confirm-btn(href=`/questions/${question.id}?_method=delete`) Delete
+        
+        
+          button.btn.btn-primary.question-like-btn(data-id=question.id)  좋아요
+          
+          | 
+          a.btn.btn-outline-secondary(href=`/questions/${question.id}/edit`) 수정
+          | 
+          a.btn.btn-outline-danger.delete-btn(href="#", data-url=`/questions/${question.id}?_method=delete`) 삭제
       
     if question.numAnswers > 0
       hr
@@ -59,3 +111,8 @@ block content
 
 
   script(src='/javascripts/question_client.js')
+
+
+
+
+  

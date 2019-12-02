@@ -6,16 +6,53 @@ block hero-unit
       
 block content
   .container
+   
+          form.form-inline.search-input-group(action='/questions', method='GET')
+            input.form-control.mr-sm-2(type='text', name='term', placeholder='여행지, 제목, 키워드를 입력해주세요', aria-label='Search', value=term)
+
+  br
+  br
+  .container
     .row
-      .col-md-6
-        h3 서비스 목적
-        p 본 서비스는 웹프로그래밍 수업을 위해서 sample로 만들어보는 것입니다. 
-      .col-md-6
-        h3 주요 기능
-        ul
-         li 질문글 등록/보기/변경/삭제
-          li 답변글 등록/삭제
-          li 사용자 관리/인증
-          li API
+      .col-xl-12
+        .section_title.text-center.mb-100
+          h3
+            | 요즘 뜨는 여행지
+          
+    .row
+      .col-xl-4.col-md-6.col-lg-4
+        .single_news
+          .thumb
+            a(href='#')
+              img(src='img/news/1.png', alt='')
+          .news_content
+            .news_meta
+              
+            h3
+              a(href='#')
+                | Commitment to dedicated
+                
+      .col-xl-4.col-md-6.col-lg-4
+        .single_news
+          .thumb
+            a(href='#')
+              img(src='img/news/1.png', alt='')
+          .news_content
+            .news_meta
+              
+            h3
+              a(href='#')
+                | Commitment to dedicated
 
-
+      .col-xl-4.col-md-6.col-lg-4
+        .single_news
+          .thumb
+            a(href='#')
+              img(src='img/news/1.png', alt='')
+          .news_content
+            .news_meta
+              
+            h3
+              a(href='#')
+                | Commitment to dedicated      
+    

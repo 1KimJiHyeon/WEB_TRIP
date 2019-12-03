@@ -1,5 +1,5 @@
 const express = require('express');
-const Question = require('../../models/question'); 
+const Post = require('../../models/post'); 
 const Answer = require('../../models/answer'); 
 const LikeLog = require('../../models/like-log'); 
 const catchErrors = require('../../lib/async-error');
@@ -14,23 +14,23 @@ router.use(catchErrors(async (req, res, next) => {
   }
 }));
 
-router.use('/questions', require('./questions'));
+router.use('/posts', require('./posts'));
 
-// Like for Question
-router.post('/questions/:id/like', catchErrors(async (req, res, next) => {
-  const question = await Question.findById(req.params.id);
-  if (!question) {
+// Like for Post
+router.post('/posts/:id/like', catchErrors(async (req, res, next) => {
+  const post = await Post.findById(req.params.id);
+  if (!post) {
     return next({status: 404, msg: 'Not exist trip'});
   }
-  var likeLog = await LikeLog.findOne({author: req.user._id, question: question._id});
+  var likeLog = await LikeLog.findOne({author: req.user._id, post: post._id});
   if (!likeLog) {
-    question.numLikes++;
+    post.numLikes++;
     await Promise.all([
-      question.save(),
-      LikeLog.create({author: req.user._id, question: question._id})
+      post.save(),
+      LikeLog.create({author: req.user._id, post: post._id})
     ]);
   }
-  return res.json(question);
+  return res.json(post);
 }));
 
 // Like for Answer

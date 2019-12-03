@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 var schema = new Schema({
   author: { type: Schema.Types.ObjectId, ref: 'User' },
-  question: { type: Schema.Types.ObjectId, ref: 'Question' },
+  post: { type: Schema.Types.ObjectId, ref: 'Post' },
   createdAt: {type: Date, default: Date.now}
 }, {
   toJSON: { virtuals: true},

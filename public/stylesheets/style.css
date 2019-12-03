@@ -102,12 +102,12 @@ a:hover {
     font-size: 1rem;
     color: #bbb; }
 
-.question {
+.post {
   line-height: 160%;
   margin-bottom: 2em;
   font-family: 'Nanum Gothic';
   color: #666; }
-  .question .title {
+  .post .title {
     font-size: 1.3rem;
     margin-bottom: 0.3em;
     font-weight: bold; }
@@ -153,7 +153,7 @@ form.form-inline.search-input-group {
   font-weight: bold;
   color: #0f5ca6; }
 
-.questions .content {
+.posts .content {
   max-height: 5em;
   overflow: hidden;
   text-overflow: ellipsis; }
@@ -179,18 +179,18 @@ form.form-inline.search-input-group {
     margin-bottom: 0.5em;
     color: #888; }
 
-.question-like-btn, .answer-like-btn {
+.post-like-btn, .answer-like-btn {
   cursor: pointer; }
-  .question-like-btn .for-loading, .answer-like-btn .for-loading {
+  .post-like-btn .for-loading, .answer-like-btn .for-loading {
     display: none; }
-  .question-like-btn.loading, .answer-like-btn.loading {
+  .post-like-btn.loading, .answer-like-btn.loading {
     filter: opacity(30%);
     cursor: wait; }
-    .question-like-btn.loading > span, .answer-like-btn.loading > span {
+    .post-like-btn.loading > span, .answer-like-btn.loading > span {
       display: none; }
-    .question-like-btn.loading .for-loading, .answer-like-btn.loading .for-loading {
+    .post-like-btn.loading .for-loading, .answer-like-btn.loading .for-loading {
       display: inline-block; }
-  .question-like-btn.disabled, .answer-like-btn.disabled {
+  .post-like-btn.disabled, .answer-like-btn.disabled {
     color: #bbb;
     cursor: default; }
 

@@ -1,15 +1,15 @@
 $(function() {
-  $('.question-like-btn').click(function(e) {
+  $('.post-like-btn').click(function(e) {
     var $el = $(e.currentTarget);
     if ($el.hasClass('loading')) return;
     $el.addClass('loading');
     $.ajax({
-      url: '/api/questions/' + $el.data('id') + '/like',
+      url: '/api/posts/' + $el.data('id') + '/like',
       method: 'POST',
       dataType: 'json',
       success: function(data) {
-        $('.question .num-likes').text(data.numLikes);
-        $('.question-like-btn').hide();
+        $('.post .num-likes').text(data.numLikes);
+        $('.post-like-btn').hide();
       },
       error: function(data, status) {
         if (data.status == 401) {

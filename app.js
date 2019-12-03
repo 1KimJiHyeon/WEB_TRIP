@@ -13,7 +13,7 @@ var passport = require('passport');
 var passportSocketIo = require('passport.socketio');
 var index = require('./routes/index');
 var users = require('./routes/users');
-var questions = require('./routes/questions');
+var posts = require('./routes/posts');
 
 var passportConfig = require('./lib/passport-config');
 
@@ -129,7 +129,7 @@ module.exports = (app, io) => {
   // Route
   app.use('/', index);
   app.use('/users', users);
-  app.use('/questions', questions(io)); // socket.io를 인자로 주기 위해 function으로 변경
+  app.use('/posts', posts(io)); // socket.io를 인자로 주기 위해 function으로 변경
   require('./routes/auth')(app, passport);
   app.use('/api', require('./routes/api'));
 

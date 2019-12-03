@@ -1,8 +1,0 @@
-extends ../layout
-
-block content
-  .container
-    h1.main-title 투어상품 수정하기
-    form(action=`/questions/${question.id}?_method=PUT`, method="POST")
-      include _form
-      button.btn.btn-outline-primary(type="submit") 수정

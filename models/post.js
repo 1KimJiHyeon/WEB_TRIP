@@ -8,15 +8,17 @@ var schema = new Schema({
   title: {type: String, trim: true, required: true},
   content: {type: String, trim: true, required: true},
   // 추가
-  sponser : {type:String, trim:true, required:true},
+  
   field : {type:String, trim:true, required:true},
-  applicant : {type:Number, trim:true, required:true},
-  period : {type:String, trim:true, required:true},
+  price : {type:Number, trim:true, required:true},
+  course1 : {type:String, trim:true, required:true},
+  course2 : {type:String, trim:true, required:true},
+  course3 : {type:String, trim:true, required:true},
   manager : {type:String, trim:true, required:true},
-  tel : {type:String, trim:true, required:true},
+  
 
   // 옵션 선택
-  radio : {type:String, trim: true, required:true},
+  
 
   // 공모전 포스터 등록 
   // poster : {type:String, required:true},

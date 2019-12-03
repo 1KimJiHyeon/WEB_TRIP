@@ -72,15 +72,17 @@ module.exports = io => {
     post.content = req.body.content;
 
     // 추가
-    post.sponser = req.body.sponser;
+    
     post.field = req.body.field;
-    post.applicant = req.body.applicant;
-    post.period = req.body.period;
+    post.price = req.body.price;
+    post.course1 = req.body.course1;
+    post.course2 = req.body.course2;
+    post.course3 = req.body.course3;
     post.manager = req.body.manager;
-    post.tel = req.body.tel;
+    
 
     // 옵션 선택
-    post.radio = req.body.radio;
+    
 
     // 포스터 등록 
     post.poster = req.body.poster;
@@ -126,15 +128,17 @@ module.exports = io => {
         content: req.body.content,
 
         // 추가
-        sponser : req.body.sponser,
+        
         field : req.body.field,
-        applicant : req.body.applicant,
-        period : req.body.period,
+        price : req.body.price,
+        course1 : req.body.course1,
+        course2 : req.body.course2,
+        course3 : req.body.course3,
         manager : req.body.manager,
-        tel : req.body.tel,
+        
 
         // 옵션 추가
-        radio : req.body.radio,
+       
 
         tags: req.body.tags.split(" ").map(e => e.trim()),
       });
@@ -160,15 +164,15 @@ module.exports = io => {
       content: req.body.content,
 
       // 추가
-      sponser : req.body.sponser,
+      
       field : req.body.field,
-      applicant : req.body.applicant,
-      period : req.body.period,
+      price : req.body.price,
+      
       manager : req.body.manager,
-      tel : req.body.tel,
+      
 
       // 옵션 추가
-      radio : req.body.radio,
+      
 
       // 포스터 등록
       // poster: req.body.poster,

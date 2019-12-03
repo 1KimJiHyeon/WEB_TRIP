@@ -1,11 +1,4 @@
-label(for="radio") 여행지 상태  
-.form-group
-  input.radioInput(type="radio", name="radio", value="접수중", checked="checked")
-  | 여행지 접수중    
-  input.radioInput(type="radio", name="radio", value="마감임박")
-  | 여행지 마감임박   
-  input.radioInput(type="radio", name="radio", value="마감")
-  | 여행지 마감 
+
 .form-group
   label(for="title") 여행지
   input.form-control(type="text", name="title", placeholder="여행지", value=post.title)
@@ -17,18 +10,18 @@ label(for="radio") 여행지 상태
 
 .form-group
   
-  label(for="post") 여행지 설명
+  label(for="content") 여행지 설명
   input.form-control(type="file", name="img")
   textarea.form-control(name="content", rows="10", placeholder="여행지 설명")= post.content
 
 .form-group
-  label(for="period") 여행 코스
-  input.form-control(type="text",  name="period",placeholder="1일차", value=post.period)
-  input.form-control(type="text", name="tel", placeholder="2일차", value=post.tel)
-  input.form-control(type="text", name="sponser", placeholder="3일차", value=post.sponser)
+  label(for="course") 여행 코스
+  input.form-control(type="text",  name="course1",placeholder="1일차", value=post.course1)
+  input.form-control(type="text", name="course2", placeholder="2일차", value=post.course2)
+  input.form-control(type="text", name="course3", placeholder="3일차", value=post.course3)
 .form-group
-  label(for="applicant") 여행지 가격
-  input.form-control(type="number", name="applicant", placeholder="여행지 가격", value=post.applicant)
+  label(for="price") 여행지 가격
+  input.form-control(type="number", name="price", placeholder="여행지 가격", value=post.price)
 
 .form-group
   label(for="meet") 만나는 장소
@@ -49,17 +42,6 @@ label(for="radio") 여행지 상태
     //<![CDATA[
     bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
     //]]>
-  
-
-  
-
-
-
-
-
-// 공모전 포스터 등록
-
-
 
 
 .form-group

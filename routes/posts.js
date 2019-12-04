@@ -12,18 +12,39 @@ const path = require('path');
 module.exports = io => {
   const router = express.Router();
   
-  // 동일한 코드가 users.js에도 있습니다. 이것은 나중에 수정합시다.
-  function needAuth(req, res, next) {
+  // // 동일한 코드가 users.js에도 있습니다. 이것은 나중에 수정합시다.
+  // function needAuth(req, res, next) {
+  //   if (req.isAuthenticated()) {
+  //     next();
+  //   } else {
+  //     req.flash('danger', 'Please signin first.');
+  //     res.redirect('/signin');
+  //   }
+  // }
+
+async function needAuth(req, res, next) {
+  try {
     if (req.isAuthenticated()) {
-      next();
+      console.log(req.user)
+      if(req.user.userMode == "가이드"){
+        req.flash('success', 'welcome!');
+        next();
+      } else {
+        req.flash('danger', '가이드 모드로 다시 로그인해주세요');
+        res.redirect('/signin');
+      }
     } else {
-      req.flash('danger', 'Please signin first.');
+      req.flash('danger', '로그인이 필요한 서비스입니다');
       res.redirect('/signin');
     }
+  } catch(err){
+    console.log(err);
   }
+}
+
 
   /* GET posts listing. */
-  router.get('/', catchErrors(async (req, res, next) => {
+  router.get('/',catchErrors(async (req, res, next) => {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;
 
@@ -43,6 +64,12 @@ module.exports = io => {
     res.render('posts/index', {posts: posts, term: term, query: req.query});
   }));
 
+
+
+
+
+
+
   router.get('/new', needAuth, (req, res, next) => {
     res.render('posts/new', {post: {}});
   });
@@ -52,6 +79,9 @@ module.exports = io => {
     res.render('posts/edit', {post: post});
   }));
 
+
+
+  
   router.get('/:id', catchErrors(async (req, res, next) => {
     const post = await Post.findById(req.params.id).populate('author');
     const answers = await Answer.find({post: post.id}).populate('author');
@@ -117,6 +147,10 @@ module.exports = io => {
       cb(null, true);
     }
   });
+
+
+ 
+
 
   // 추가 - 이미지 등록 
   router.post('/', needAuth, 

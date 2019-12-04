@@ -3,15 +3,17 @@ const User = require('../models/user');
 const router = express.Router();
 const catchErrors = require('../lib/async-error');
 
-/*
-function needAuth(req, res, next) {
-  if (req.isAuthenticated()) {
-    next();
-  } else {
-    req.flash('danger', 'signin first');
-    res.redirect('/signin');
-  }
-}*/
+// function needAuth(req, res, next) {
+//   if (req.isAuthenticated()) {
+//     next();
+//   } else {
+//     req.flash('danger', 'signin first');
+//     res.redirect('/signin');
+//   }
+// }
+
+
+
 
 // 관리자 권한 확인 
 async function needAuth(req, res, next) {
@@ -33,6 +35,7 @@ async function needAuth(req, res, next) {
     console.log(err);
   }
 }
+
 
 function validateForm(form, options) {
   var name = form.name || "";
@@ -73,10 +76,13 @@ router.get('/new', (req, res, next) => {
   res.render('users/new', {messages: req.flash()});
 });
 
-router.get('/:id/edit', needAuth, catchErrors(async (req, res, next) => {
+router.get('/:id/edit',catchErrors(async (req, res, next) => {
   const user = await User.findById(req.params.id);
   res.render('users/edit', {user: user});
 }));
+
+
+
 
 router.put('/:id', needAuth, catchErrors(async (req, res, next) => {
   const err = validateForm(req.body);
@@ -100,7 +106,8 @@ router.put('/:id', needAuth, catchErrors(async (req, res, next) => {
   user.email = req.body.email;
 
   // 추가 - 관리자 모드
-  user.userMode = req.body.userMode;
+  user.userMode =  req.body.admin;
+ 
 
   if (req.body.password) {
     user.password = await user.generateHash(req.body.password);
@@ -110,11 +117,12 @@ router.put('/:id', needAuth, catchErrors(async (req, res, next) => {
   res.redirect('/users');
 }));
 
-router.delete('/:id', needAuth, catchErrors(async (req, res, next) => {
+router.delete('/:id', catchErrors(async (req, res, next) => {
   const user = await User.findOneAndRemove({_id: req.params.id});
   req.flash('success', 'Deleted Successfully.');
   res.redirect('/users');
 }));
+
 
 router.get('/:id', catchErrors(async (req, res, next) => {
   const user = await User.findById(req.params.id);

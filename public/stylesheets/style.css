@@ -124,6 +124,9 @@ img.img-fluid {
 form.form-inline.search-input-group {
   margin-top: 30px; }
 
+.radioInput {
+  margin: 10px; }
+
 .row {
   margin-bottom: 10px; }
   .row .col-2 {

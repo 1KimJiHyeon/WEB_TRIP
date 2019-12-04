@@ -112,7 +112,7 @@ async function needAuth(req, res, next) {
     
 
     // 옵션 선택
-    
+    post.radio = req.body.radio;
 
     // 포스터 등록 
     post.poster = req.body.poster;
@@ -172,7 +172,7 @@ async function needAuth(req, res, next) {
         
 
         // 옵션 추가
-       
+        radio : req.body.radio,
 
         tags: req.body.tags.split(" ").map(e => e.trim()),
       });
@@ -218,7 +218,7 @@ async function needAuth(req, res, next) {
     res.redirect('/posts');
   }));*/
 
-  router.post('/:id/answers', needAuth, catchErrors(async (req, res, next) => {
+  router.post('/:id/answers', catchErrors(async (req, res, next) => {
     const user = req.user;
     const post = await Post.findById(req.params.id);
 

@@ -10,12 +10,22 @@ block content
 
     .form
       .form-row
-        .col-md-2="국가"
+        .col-md-2="대륙"
         .form-group.col-md-4
           select#exampleFormControlSelect1.form-control(onchange='/posts', method='POST')
             option 아시아
             option 유럽
             option 오세아니아
+      .form-row
+        .col-md-2="정렬"
+        .form-group.col-md-4
+          select#exampleFormControlSelect1.form-control(onchange='/posts', method='POST')
+            option 추천순
+            option 인기순
+            option 후기순
+            option 가격순
+            option 신상품순
+
             
 
         //.form-group.col-md-2

@@ -4,6 +4,8 @@ const catchErrors = require('../../lib/async-error');
 
 const router = express.Router();
 
+
+
 // Index
 router.get('/', catchErrors(async (req, res, next) => {
   const page = parseInt(req.query.page) || 1;
@@ -29,7 +31,7 @@ router.post('', catchErrors(async (req, res, next) => {
     title: req.body.title,
     author: req.user._id,
     content: req.body.content,
-    tags: req.body.tags.map(e => e.trim()),
+    
   });
   await post.save();
   res.json(post)
@@ -46,7 +48,7 @@ router.put('/:id', catchErrors(async (req, res, next) => {
   }
   post.title = req.body.title;
   post.content = req.body.content;
-  post.tags = req.body.tags;
+ 
   await post.save();
   res.json(post);
 }));
@@ -63,6 +65,7 @@ router.delete('/:id', catchErrors(async (req, res, next) => {
   await Post.findOneAndRemove({_id: req.params.id});
   res.json({msg: 'deleted'});
 }));
+
 
 
 module.exports = router;

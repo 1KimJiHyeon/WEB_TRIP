@@ -131,6 +131,7 @@ form.form-inline.search-input-group {
   margin-bottom: 10px; }
   .row .col-2 {
     color: #0D3FA5;
+    background-color: ghostwhite;
     font-family: 'Nanum Gothic';
     font-size: 1.1em; }
   .row .col-10 {
@@ -162,6 +163,9 @@ form.form-inline.search-input-group {
   white-space: pre-wrap; }
 
 .show .buttons {
+  margin: 1em 0; }
+
+.show .button {
   margin: 1em 0; }
 
 .show .answer {

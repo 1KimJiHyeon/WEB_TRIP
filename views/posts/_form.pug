@@ -1,4 +1,7 @@
-label(for="radio") 대륙  
+label(for="radio") 대륙
+button.btn.btn-outline-primary(type="submit") 대륙 추가
+button.btn.btn-outline-primary(type="submit") 대륙 수정
+button.btn.btn-outline-primary(type="submit") 대륙 삭제
 .form-group
   input.radioInput(type="radio", name="radio", value="아시아")
   | 아시아  
@@ -7,23 +10,26 @@ label(for="radio") 대륙
   input.radioInput(type="radio", name="radio", value="오세아니아")
   | 오세아니아 
 
+.form-group 제목
+  input.form-control(type="text", name="field", placeholder="제목", value=post.field)
 .form-group
   label(for="title") 여행지
   input.form-control(type="text", name="title", placeholder="여행지", value=post.title)
 
-.form-group 제목
-  input.form-control(type="text", name="field", placeholder="제목", value=post.field)
+
   
 
 
 .form-group
-  
-  label(for="content") 여행지 설명
   input.form-control(type="file", name="img")
+  label(for="content") 여행지 설명
+  
   textarea.form-control(name="content", rows="10", placeholder="여행지 설명")= post.content
 
 .form-group
-  label(for="course") 여행 코스
+  label(for="course") 여행 코스 
+  button.btn.btn-outline-primary(type="submit") 항목 추가
+  button.btn.btn-outline-primary(type="submit") 항목 삭제
   input.form-control(type="text",  name="course1",placeholder="1일차", value=post.course1)
   input.form-control(type="text", name="course2", placeholder="2일차", value=post.course2)
   input.form-control(type="text", name="course3", placeholder="3일차", value=post.course3)
@@ -31,15 +37,8 @@ label(for="radio") 대륙
   label(for="price") 여행지 가격
   input.form-control(type="number", name="price", placeholder="여행지 가격", value=post.price)
 
-.form-group
-  label(for="meet") 만나는 장소
-  hr
-  iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12666.003881493406!2d126.43137978475859!3d37.47250282546333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b9a833a5efa59%3A0x8d4ba096cb5cbed4!2z7J247LKc6rWt7KCc6rO17ZWt!5e0!3m2!1sko!2skr!4v1575290485267!5m2!1sko!2skr', width='400', height='300', frameborder='0', style='border:0;', allowfullscreen='')
 
 
-.form-group
-  label(for="time") 만나는 시간
-  input.form-control(type="text", name="manager",placeholder="만나는 시간", value=post.manager)
 
 
 
@@ -52,6 +51,3 @@ label(for="radio") 대륙
     //]]>
 
 
-.form-group
-  label(for="tags") Tags
-  input.form-control(type="text", name="tags", placeholder="태그를 공백으로 구분하여 입력해주세요", value=post.tags ? post.tags.join(" ") : "")

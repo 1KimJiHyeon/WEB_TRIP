@@ -108,7 +108,7 @@ async function needAuth(req, res, next) {
     post.course1 = req.body.course1;
     post.course2 = req.body.course2;
     post.course3 = req.body.course3;
-    post.manager = req.body.manager;
+    
     
 
     // 옵션 선택
@@ -117,8 +117,7 @@ async function needAuth(req, res, next) {
     // 포스터 등록 
     post.poster = req.body.poster;
 
-    post.tags = req.body.tags.split(" ").map(e => e.trim());
-
+    
     await post.save();
     req.flash('success', 'Successfully updated');
     res.redirect('/posts');
@@ -168,13 +167,13 @@ async function needAuth(req, res, next) {
         course1 : req.body.course1,
         course2 : req.body.course2,
         course3 : req.body.course3,
-        manager : req.body.manager,
+        
         
 
         // 옵션 추가
         radio : req.body.radio,
 
-        tags: req.body.tags.split(" ").map(e => e.trim()),
+       
       });
       if(req.file) {
         const dest = path.join(__dirname, '../public/images/uploads');

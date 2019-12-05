@@ -2,7 +2,7 @@ extends ../layout
 
 block content
   .container
-    h1.main-title Users
+    h1.main-title 사용자 관리하기
     
     table.table.table-hover
       thead
@@ -26,4 +26,4 @@ block content
               | 
               a.btn.btn-sm.need-confirm-btn.btn-outline-danger(href=`/users/${user._id}?_method=DELETE`)
                 | #[i.fa.fa-trash] Delete
-    a.btn.btn-primary(href='/users/new') #[i.fa.fa-plus] Register a new user
+    

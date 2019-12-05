@@ -43,6 +43,7 @@ form.form-inline.search-input-group{
   margin-bottom: 10px;
   .col-2{
     color : #0D3FA5;
+    background-color: ghostwhite;
     font-family: 'Nanum Gothic';
     font-size : 1.1em;
   }
@@ -83,6 +84,10 @@ form.form-inline.search-input-group{
     white-space: pre-wrap;
   }
   .buttons {
+    margin: 1em 0;
+  }
+
+  .button {
     margin: 1em 0;
   }
 

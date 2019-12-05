@@ -15,7 +15,6 @@ var schema = new Schema({
   course1 : {type:String, trim:true, required:true},
   course2 : {type:String, trim:true, required:true},
   course3 : {type:String, trim:true, required:true},
-  manager : {type:String, trim:true, required:true},
   
 
   // 옵션 선택
@@ -26,7 +25,7 @@ var schema = new Schema({
   
   img:{type:String}, // 이미지 path 저장하기 위해 추가
   
-  tags: [String],
+  
   numLikes: {type: Number, default: 0},
   numAnswers: {type: Number, default: 0},
   numReads: {type: Number, default: 0},

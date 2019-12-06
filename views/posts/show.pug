@@ -127,9 +127,38 @@ block content
               });
             });
 
+  script.
+    $(function() {
+      $('.delete-btn').click(function() {
+        if (confirm('Are you sure to delete?')) {
+          location = $(this).data('url');
+        }
+        return false;
+      });
+    });
   script(src='/javascripts/post_client.js')
 
 
 
+  block content
+  .container
+    
+    if post.numAnswers > 0
+      hr
+      h3 #{post.numAnswers}개의 후기
+      .answers.show
+        each answer in answers
+          include _answer
+
+    form(action=`/posts/${post.id}/answers`, method='POST')
+      .form-group
+        label(for='answer') 후기
+        textarea.form-control(name="content", rows="5")
+      button.btn.btn-primary(type="submit") 후기 남기기
 
   
+
+
+
+
+      

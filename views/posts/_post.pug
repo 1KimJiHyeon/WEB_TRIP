@@ -6,13 +6,12 @@
 .row
   .col-sm
     .numbers.
-      #[span.number.num-likes= post.numLikes] likes,
-      #[span.number.num-answers= post.numAnswers] comments,
-      #[span.number.num-reads= post.numReads] reads
+      좋아요 #[span.number.num-likes= post.numLikes]개 /         
+      조회수 #[span.number.num-reads= post.numReads]
   .col-sm
     .author
-      | posted on #{moment(post.createdAt).format('YYYY-MM-DD')}
+      | 작성일 : #{moment(post.createdAt).format('YYYY-MM-DD')}
       if post.author
         | 
-        | by #[a(href=`/users/${post.author.id}`)= post.author.name] 
+        | / 작성자: #[a(href=`/users/${post.author.id}`)= post.author.name] 
 hr

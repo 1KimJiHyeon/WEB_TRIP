@@ -14,7 +14,6 @@ const catchErrors = require('../lib/async-error');
 
 
 
-
 // 관리자 권한 확인 
 async function needAuth(req, res, next) {
   try {
@@ -35,7 +34,6 @@ async function needAuth(req, res, next) {
     console.log(err);
   }
 }
-
 
 function validateForm(form, options) {
   var name = form.name || "";
@@ -83,7 +81,6 @@ router.get('/:id/edit',catchErrors(async (req, res, next) => {
 
 
 
-
 router.put('/:id', needAuth, catchErrors(async (req, res, next) => {
   const err = validateForm(req.body);
   if (err) {
@@ -104,6 +101,8 @@ router.put('/:id', needAuth, catchErrors(async (req, res, next) => {
 
   user.name = req.body.name;
   user.email = req.body.email;
+  user.introduce = req.body.introduce;
+  user.tel = req.body.tel;
 
   // 추가 - 관리자 모드
   user.userMode =  req.body.admin;
@@ -122,7 +121,6 @@ router.delete('/:id', catchErrors(async (req, res, next) => {
   req.flash('success', 'Deleted Successfully.');
   res.redirect('/users');
 }));
-
 
 router.get('/:id', catchErrors(async (req, res, next) => {
   const user = await User.findById(req.params.id);
@@ -144,6 +142,9 @@ router.post('/', catchErrors(async (req, res, next) => {
   user = new User({
     name: req.body.name,
     email: req.body.email,
+    introduce: req.body.introduce,
+    tel: req.body.tel,
+
 
     // 추가 - 관리자 모드
     userMode : req.body.userMode,
@@ -155,3 +156,4 @@ router.post('/', catchErrors(async (req, res, next) => {
 }));
 
 module.exports = router;
+

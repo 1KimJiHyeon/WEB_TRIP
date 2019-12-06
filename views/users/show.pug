@@ -8,15 +8,29 @@ block content
       button.btn.btn-outline-primary(type="submit") 예약내역
           
     dl.row
+
+      
+      dt.col-sm-3 Introduce
+      dd.col-sm-9= user.introduce
+
       dt.col-sm-3 Email
       dd.col-sm-9
         a(href=`mailto:${user.email}`)= user.email
 
+      dt.col-sm-3 Tel
+      dd.col-sm-9= user.tel
+      
+      dt.col-sm-3 userMode
+      dd.col-sm-9= user.userMode
+
       dt.col-sm-3 Created At
       dd.col-sm-9= user.createdAt
 
-      dt.col-sm-3 userMode
-      dd.col-sm-9= user.userMode
+      
+
+      
+
+      
       
       if user.facebook.id
         dt.col-sm-3 Facebook

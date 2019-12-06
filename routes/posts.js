@@ -43,6 +43,7 @@ async function needAuth(req, res, next) {
 }
 
 
+
   /* GET posts listing. */
   router.get('/',catchErrors(async (req, res, next) => {
     const page = parseInt(req.query.page) || 1;

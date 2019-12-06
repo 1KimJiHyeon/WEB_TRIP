@@ -11,7 +11,7 @@ block content
           th userMode
           th Email
           th Created At
-          th
+          
       tbody
         each user in users
           tr
@@ -19,6 +19,7 @@ block content
               a(href=`/users/${user._id}`)= user.name
             td= user.userMode
             td= user.email
+            
             td= moment(user.createdAt).format('YYYY-MM-DD HH:mm:ss')
             td
               a.btn.btn-sm.btn-outline-secondary(href=`/users/${user._id}/edit`) 

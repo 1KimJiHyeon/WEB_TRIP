@@ -5,12 +5,6 @@ block content
     h1.main-title Profile Update
     form(action=`/users/${user._id}?_method=PUT`, method='POST')
       .form-group
-        label(for='name') Name
-        input.form-control(type='text', id='name', name='name', placeholder='Your name', value=user.name)
-      .form-group
-        label(for='email') Email address
-        input.form-control(type='email', id='email', name='email', placeholder='Email', value=user.email)
-      .form-group
         label(for='isManager') userMode
         input.radioInput(type='radio', name="userMode", value="일반 사용자", checked="checked")
         | 일반 사용자
@@ -18,8 +12,24 @@ block content
         | 가이드
         input.radioInput(type='radio', name="userMode", value="관리자")
         | 관리자 
-     
-
+      .form-group
+        label(for='name') Name
+        input.form-control(type='text', id='name', name='name', placeholder='Your name', value=user.name)
+      .form-group
+        
+        label(for="introduce") Introduce
+        
+        textarea.form-control(name="introduce", rows="10", placeholder="소개")= user.introduce
+      
+      .form-group
+        label(for='tel') tel
+        input.form-control(type='text', id='tel', name='tel', placeholder='전화번호', value=user.tel)
+      
+      
+      .form-group
+        label(for='email') Email address
+        input.form-control(type='email', id='email', name='email', placeholder='Email', value=user.email)
+      
       .form-group
         label(for='current_password') Current Password
         input.form-control(type='password', id='current_password', name='current_password', placeholder='Current Password')
@@ -29,6 +39,9 @@ block content
       .form-group
         label(for='password_confirmation') Password Confirmation
         input.form-control(type='password', id='password_confirmation', name='password_confirmation', placeholder='Password Confirmation')
-      a.btn.btn-outline-secondary(href='javascript:window.history.back();') Back 
+     
+      
+      
+      a.btn.btn-outline-secondary(href='javascript:window.history.back();') 뒤로 
       | 
-      button.btn.btn-primary(type='submit') Update
+      button.btn.btn-primary(type='submit') 수정

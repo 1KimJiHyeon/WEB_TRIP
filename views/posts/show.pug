@@ -108,46 +108,6 @@ block content
               a.btn.btn-outline-danger.delete-btn(href="#", data-url=`/posts/${post.id}?_method=delete`) 삭제
 
 
-
-          
-        
-                  
-        
-          
-
-
-
-         
-         
-        
-        
-        
-        
-
-
-        
-
-    
-
-
-      
-      
-    //- if post.numAnswers > 0
-    //-   hr
-    //-   h3 #{post.numAnswers} Answer(s)
-    //-   .answers.show
-    //-     each answer in answers
-    //-       include _answer
-
-    //- if currentUser
-    //-   form(action=`/posts/${post.id}/answers`, method='POST')
-    //-     .form-group
-    //-       label(for='answer') Your Comment
-          
-    //-       textarea.form-control(name="content", rows="5")
-    //-     button.btn.btn-primary(type="submit") Post Your Comment
-
-
   script(src='/javascripts/post_client.js')
 
 

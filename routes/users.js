@@ -3,16 +3,6 @@ const User = require('../models/user');
 const router = express.Router();
 const catchErrors = require('../lib/async-error');
 
-// function needAuth(req, res, next) {
-//   if (req.isAuthenticated()) {
-//     next();
-//   } else {
-//     req.flash('danger', 'signin first');
-//     res.redirect('/signin');
-//   }
-// }
-
-
 
 // 관리자 권한 확인 
 async function needAuth(req, res, next) {

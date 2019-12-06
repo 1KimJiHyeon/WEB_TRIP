@@ -12,15 +12,6 @@ const path = require('path');
 module.exports = io => {
   const router = express.Router();
   
-  // // 동일한 코드가 users.js에도 있습니다. 이것은 나중에 수정합시다.
-  // function needAuth(req, res, next) {
-  //   if (req.isAuthenticated()) {
-  //     next();
-  //   } else {
-  //     req.flash('danger', 'Please signin first.');
-  //     res.redirect('/signin');
-  //   }
-  // }
 
 async function needAuth(req, res, next) {
   try {
@@ -115,7 +106,6 @@ async function needAuth(req, res, next) {
     // 옵션 선택
     post.radio = req.body.radio;
 
-    // 포스터 등록 
     post.poster = req.body.poster;
 
     
@@ -189,34 +179,7 @@ async function needAuth(req, res, next) {
     }));
 
 
-  /*
-  router.post('/', needAuth, catchErrors(async (req, res, next) => {
-    const user = req.user;
-    var post = new Post({
-      title: req.body.title,
-      author: user._id,
-      content: req.body.content,
-
-      // 추가
-      
-      field : req.body.field,
-      price : req.body.price,
-      
-      manager : req.body.manager,
-      
-
-      // 옵션 추가
-      
-
-      // 포스터 등록
-      // poster: req.body.poster,
-
-      tags: req.body.tags.split(" ").map(e => e.trim()),
-    });
-    await post.save();
-    req.flash('success', 'Successfully posted');
-    res.redirect('/posts');
-  }));*/
+ 
 
   router.post('/:id/answers', catchErrors(async (req, res, next) => {
     const user = req.user;

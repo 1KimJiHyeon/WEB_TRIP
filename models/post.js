@@ -8,24 +8,12 @@ var schema = new Schema({
   title: {type: String, trim: true, required: true},
   content: {type: String, trim: true, required: true},
   radio : {type:String, trim: true, required:true},
-  // 추가
-  
   field : {type:String, trim:true, required:true},
   price : {type:Number, trim:true, required:true},
   course1 : {type:String, trim:true, required:true},
   course2 : {type:String, trim:true, required:true},
   course3 : {type:String, trim:true, required:true},
-  
-
-  // 옵션 선택
-  
-
-  // 공모전 포스터 등록 
-  // poster : {type:String, required:true},
-  
   img:{type:String}, // 이미지 path 저장하기 위해 추가
-  
-  
   numLikes: {type: Number, default: 0},
   numAnswers: {type: Number, default: 0},
   numReads: {type: Number, default: 0},

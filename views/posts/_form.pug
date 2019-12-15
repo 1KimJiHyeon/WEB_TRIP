@@ -18,6 +18,21 @@ button.btn.btn-outline-primary(type="submit") 대륙 삭제
 
 
   
+// include libraries(jQuery, bootstrap)
+link(href='http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css', rel='stylesheet')
+script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js')
+script(src='http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js')
+// include summernote css/js
+link(href='http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css', rel='stylesheet')
+script(src='http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js')
+  | $(document).ready(function() {
+  |      $(&apos;#summernote&apos;).summernote({
+  |              height: 700,                 // set editor height
+  |              minHeight: null,             // set minimum height of editor
+  |              maxHeight: null,             // set maximum height of editor
+  |              focus: true                  // set focus to editable area after initializing summernote
+  |      });
+  | });
 
 
 .form-group
@@ -25,6 +40,8 @@ button.btn.btn-outline-primary(type="submit") 대륙 삭제
   label(for="content") 여행지 설명
   
   textarea.form-control(name="content", rows="10", placeholder="여행지 설명")= post.content
+
+  
 
 .form-group
   label(for="course") 여행 코스 

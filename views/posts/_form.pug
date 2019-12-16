@@ -37,9 +37,19 @@ script(src='http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js
 
 .form-group
   input.form-control(type="file", name="img")
-  label(for="content") 여행지 설명
-  
+  label(for="content") 상세 설명
+  //- textarea.form-control(name="content", rows="10", placeholder="여행지 설명")= post.content
+
   textarea.form-control(name="content", rows="10", placeholder="여행지 설명")= post.content
+script.
+  $('#summernote').summernote({
+    placeholder: '상세 설명',
+    tabsize: 3,
+    height: 200
+          });
+  //- label(for="content") 여행지 설명
+  
+  //- textarea.form-control(name="content", rows="10", placeholder="여행지 설명")= post.content
 
   
 
